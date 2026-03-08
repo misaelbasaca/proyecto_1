@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<title>Galería</title>
+
+<style>
+
+body{
+background: linear-gradient(135deg,#0f0f0f,#1a0f0f);
+color:white;
+font-family:Arial;
+text-align:center;
+margin:0;
+}
+
+/* titulo */
+
+h1{
+color:#ff3c00;
+margin-top:40px;
+}
+
+/* galeria */
+
+.galeria{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+max-width:900px;
+margin:40px auto;
+padding:20px;
+}
+
+.galeria img{
+width:100%;
+border-radius:12px;
+cursor:pointer;
+transition:0.3s;
+box-shadow:0 0 10px #ff3c00;
+}
+
+.galeria img:hover{
+transform:scale(1.05);
+}
+
+/* imagen grande */
+
+.modal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.9);
+justify-content:center;
+align-items:center;
+}
+
+.modal img{
+max-width:80%;
+max-height:80%;
+border-radius:10px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>Mi Galería</h1>
+
+<div class="galeria">
+
+<img src="foto1.jpg" onclick="abrirImagen(this)">
+<img src="foto2.jpg" onclick="abrirImagen(this)">
+<img src="foto3.jpg" onclick="abrirImagen(this)">
+
+</div>
+
+<div class="modal" id="modal" onclick="cerrarImagen()">
+<img id="imagenGrande">
+</div>
+
+<script>
+
+function abrirImagen(img){
+document.getElementById("modal").style.display="flex";
+document.getElementById("imagenGrande").src=img.src;
+}
+
+function cerrarImagen(){
+document.getElementById("modal").style.display="none";
+}
+
+</script>
+
+</body>
+</html>
